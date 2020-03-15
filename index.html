@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title charset="UTF-8">Web Sockets</title>
+</head>
+<body>
+	<script>
+		var sock = new WebSocket("wss://echo.websocket.org");
+		sock.onopen = function(event){
+			alert("socket conneted succesfully");
+			setTimeout(function(){
+				sock.send("hey there");
+			}, 1000);
+			
+		};
+
+		sock.onmessage = function(event){
+			console.log(event);
+		};
+	</script>
+
+</body> 
+</html>
